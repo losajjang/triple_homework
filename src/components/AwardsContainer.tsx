@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import awardPlayStore from "../static/images/play-store2x.png";
 import awardApple from "../static/images/badge-apple4x.png";
+import useFadein from "../hooks/useFadein";
+import { Fadein } from "../types/fadein";
 
 const AwardsContainer = () => {
+  const [opacity, transY] = useFadein();
+
   return (
-    <AwardBox>
+    <AwardBox  isVisible={opacity} transY={transY}>
       <AwardItem>
         2018 구글 플레이스토어
         <br />
@@ -20,9 +24,12 @@ const AwardsContainer = () => {
   );
 };
 
-const AwardBox = styled.div`
+const AwardBox = styled.div<Fadein>`
   margin-top: 50px;
   white-space: nowrap;
+  opacity: ${(props) => (props.isVisible ? "1" : "0")};
+  transform: translateY(${(props) => (props.transY ? "0px" : "10px")});
+  transition: all 700ms ease-in-out 200ms;
 `;
 
 const AwardItem = styled.div`
@@ -39,18 +46,6 @@ const AwardItem = styled.div`
   background-position-y: top;
   background-repeat: no-repeat;
   line-height: 22px;
-  animation: fadein 700ms ease-in-out 200ms;
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: none;
-    }
-  }
 
   &:first-child {
     background-image: url(${awardPlayStore});

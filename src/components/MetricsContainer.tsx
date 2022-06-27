@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import useFadein from "../hooks/useFadein";
+import { Fadein } from "../types/fadein";
 
 const MetricsContainer = () => {
+  const [opacity, transY] = useFadein();
+
   return (
-    <MetricBox>
+    <MetricBox isVisible={opacity} transY={transY}>
       <MetricItem>
         <strong>
           <span>350</span>만 명
@@ -26,7 +30,11 @@ const MetricsContainer = () => {
   );
 };
 
-const MetricBox = styled.div``;
+const MetricBox = styled.div<Fadein>`
+  opacity: ${(props) => (props.isVisible ? "1" : "0")};
+  transform: translateY(${(props) => (props.transY ? "0px" : "10px")});
+  transition: all 700ms ease-in-out 100ms;
+`;
 
 const MetricItem = styled.div`
   margin-bottom: 20px;
@@ -34,18 +42,6 @@ const MetricItem = styled.div`
   font-size: 36px;
   color: #3a3a3a;
   letter-spacing: -1px;
-  animation: fadein 700ms ease-in-out 100ms;
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: none;
-    }
-  }
 
   &:last-child {
     margin-bottom: 0px;
