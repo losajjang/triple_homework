@@ -39,6 +39,18 @@ const AwardItem = styled.div`
   background-position-y: top;
   background-repeat: no-repeat;
   line-height: 22px;
+  animation: fadein 700ms ease-in-out 200ms;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
   &:first-child {
     background-image: url(${awardPlayStore});
