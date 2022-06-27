@@ -19,6 +19,18 @@ const ContentLogoBox = styled.div`
   font-family: sans-serif;
   font-size: 15px;
   color: #3a3a3ab3;
+  animation: fadein 700ms ease-in-out 0ms;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
 `;
 
 export default ContentLogo;

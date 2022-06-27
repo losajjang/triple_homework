@@ -26,8 +26,7 @@ const MetricsContainer = () => {
   );
 };
 
-const MetricBox = styled.div`
-`;
+const MetricBox = styled.div``;
 
 const MetricItem = styled.div`
   margin-bottom: 20px;
@@ -35,6 +34,18 @@ const MetricItem = styled.div`
   font-size: 36px;
   color: #3a3a3a;
   letter-spacing: -1px;
+  animation: fadein 700ms ease-in-out 100ms;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
   &:last-child {
     margin-bottom: 0px;
