@@ -2,12 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import { CONTENT_LOGO } from "../static/images";
 import contentLogo from "../static/images/triple2x.png";
+import useFadein from "../hooks/useFadein";
 
 const ContentLogo = () => {
-  return <ContentLogoBox>2019월 2월 기준</ContentLogoBox>;
+  const [opacity, transY] = useFadein();
+  return (
+    <ContentLogoBox isVisible={opacity} transY={transY}>
+      2019월 2월 기준
+    </ContentLogoBox>
+  );
 };
 
-const ContentLogoBox = styled.div`
+interface Fadein {
+  isVisible: boolean;
+  transY: boolean;
+}
+
+const ContentLogoBox = styled.div<Fadein>`
   top: 150px;
   width: 400px;
   height: 338px;
@@ -19,18 +30,9 @@ const ContentLogoBox = styled.div`
   font-family: sans-serif;
   font-size: 15px;
   color: #3a3a3ab3;
-  animation: fadein 700ms ease-in-out 0ms;
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: none;
-    }
-  }
+  opacity: ${(props) => (props.isVisible ? "1" : "0")};
+  transform: translateY(${(props) => (props.transY ? "0px" : "10px")});
+  transition: all 700ms ease-in-out 0ms;
 `;
 
 export default ContentLogo;
