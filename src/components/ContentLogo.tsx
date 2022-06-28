@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import contentLogo from "../static/images/triple2x.png";
-import useFadein from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
 import { Fadein } from "../types/fadein";
 
-const ContentLogo = () => {
-  const [opacity, transY] = useFadein();
-  
+const ContentLogo: React.FC = () => {
+  const [opacity, transY] = useFadeIn();
+
   return (
     <ContentLogoBox isVisible={opacity} transY={transY}>
       2019월 2월 기준

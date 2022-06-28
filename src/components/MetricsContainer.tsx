@@ -1,28 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import useFadein from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
+import useCountUp from "../hooks/useCountUp";
 import { Fadein } from "../types/fadein";
 
-const MetricsContainer = () => {
-  const [opacity, transY] = useFadein();
+const MetricsContainer: React.FC = () => {
+  const [opacity, transY] = useFadeIn();
+  const users = useCountUp(350)
+  const reviews = useCountUp(21)
+  const save = useCountUp(650)
 
   return (
     <MetricBox isVisible={opacity} transY={transY}>
       <MetricItem>
         <strong>
-          <span>350</span>만 명
+          <span>{users}</span>만 명
         </strong>
         의 사용자
       </MetricItem>
       <MetricItem>
         <strong>
-          <span>21</span>만 개
+          <span>{reviews}</span>만 개
         </strong>
         의 리뷰
       </MetricItem>
       <MetricItem>
         <strong>
-          <span>650</span>만 개
+          <span>{save}</span>만 개
         </strong>
         의 저장
       </MetricItem>

@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import awardPlayStore from "../static/images/play-store2x.png";
 import awardApple from "../static/images/badge-apple4x.png";
-import useFadein from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
 import { Fadein } from "../types/fadein";
 
-const AwardsContainer = () => {
-  const [opacity, transY] = useFadein();
+const AwardsContainer: React.FC = () => {
+  const [opacity, transY] = useFadeIn();
 
   return (
-    <AwardBox  isVisible={opacity} transY={transY}>
+    <AwardBox isVisible={opacity} transY={transY}>
       <AwardItem>
         2018 구글 플레이스토어
         <br />
