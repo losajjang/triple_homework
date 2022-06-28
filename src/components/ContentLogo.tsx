@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import contentLogo from "../static/images/triple2x.png";
-import useFadeIn from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
 import { Fadein } from "../types/fadein";
 
 const ContentLogo: React.FC = () => {
