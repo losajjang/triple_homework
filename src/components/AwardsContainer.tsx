@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import awardPlayStore from "../static/images/play-store2x.png";
 import awardApple from "../static/images/badge-apple4x.png";
-import useFadeIn from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
 import { Fadein } from "../types/fadein";
 
 const AwardsContainer: React.FC = () => {

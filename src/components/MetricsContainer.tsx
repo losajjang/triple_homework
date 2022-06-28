@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useFadeIn from "../hooks/useFadein";
+import useFadeIn from "../hooks/useFadeIn";
 import useCountUp from "../hooks/useCountUp";
 import { Fadein } from "../types/fadein";
 
